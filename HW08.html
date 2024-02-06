@@ -1,0 +1,62 @@
+<html>
+<head>
+    <title> HW08 </title>
+    <style>
+#randtable{
+border-collapse: collapse;
+font-size: 40px;
+}
+#randtable td, #randtable th {
+border:thick solid black;
+padding 10px;
+border-collapse: collapse;
+}
+    </style>
+</head>
+<body>
+
+<table id=randtable>
+ <tr>
+        <th> <img class="Image" width="60px"> </th>
+        <th> <img class="Image" width="60px"> </th>
+        <th> <img class="Image" width="60px"> </th>
+        <th> <img class="Image" width="60px"> </th>
+
+    </tr>
+    <tr>
+        <td> <img class="Image" width="60px"> </td>
+        <td> <img class="Image" width="60px"> </td>
+        <td> <img class="Image" width="60px"> </td>
+        <td> <img class="Image" width="60px"> </td>
+
+    </tr>
+     <tr>
+        <td> <img class="Image" width="60px"> </td>
+        <td> <img class="Image" width="60px"> </td>
+        <td> <img class="Image" width="60px"> </td>
+        <td> <img class="Image" width="60px"> </td>
+
+    </tr>
+</table>
+<script>
+function randomize(array) {
+    let randomspot;
+    for (var i=array.length-1; i >= 0 ;i-- ){
+        randomspot = Math.floor(Math.random() * i);
+        [array[i], array[randomspot]] = [array[randomspot], array[i]];
+    }
+    return array;
+}
+
+let wordsArray = ["apple.png","apple.png","mango.png","mango.png","lemon.png","lemon.png","banana.png","banana.png","orange.png","orange.png"
+,"strawberry.png","strawberry.png"];
+let randArray = randomize(wordsArray);
+let imgs = document.getElementsByClassName('Image');
+for (var i=randArray.length-1; i >= 0 ;i-- ){
+    var p = imgs[i];
+    p.setAttribute("src", randArray[i]);
+}
+
+</script>
+</body>
+</html>
